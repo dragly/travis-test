@@ -22,23 +22,7 @@ parts:
       - intltool
       - ubuntu-touch-sounds
       - suru-icon-theme
-      - qt573d
-      - qt57charts-no-lgpl
-      - qt57datavis-no-lgpl
-      - qt57declarative
-      - qt57graphicaleffects
-      - qt57quickcontrols
-      - qt57quickcontrols2
-      - qt57svg
     stage-packages:
-      - qt573d
-      - qt57charts-no-lgpl
-      - qt57datavis-no-lgpl
-      - qt57declarative
-      - qt57graphicaleffects
-      - qt57quickcontrols
-      - qt57quickcontrols2
-      - qt57svg
       - ubuntu-sdk-libs
     snap:
       - -usr/share/doc
