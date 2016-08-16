@@ -8,7 +8,7 @@ before_install:
   - docker run -d -p 127.0.0.1:80:4567 ubuntu /bin/sh -c "echo hello"
   - docker ps -a
   - docker run ubuntu /bin/sh -c "echo hello again"
-  - docker run ubuntu /bin/sh -c "sudo apt-add-repository -y ppa:snappy-dev/tools-proposed; sudo apt-get -qq update; sudo apt-get -qq install snapcraft"
+  - docker run ubuntu /bin/sh -c "apt-add-repository -y ppa:snappy-dev/tools-proposed; apt-get -qq update; apt-get -qq install snapcraft"
 script:
   - snapcraft
   - sudo snap install travis-test*.snap
