@@ -10,5 +10,5 @@ before_install:
   # - docker run ubuntu /bin/sh -c "cd $(pwd); ls -la"
   # - docker run ubuntu /bin/sh -c "apt-get -qq update; apt-get -qq install snapcraft; snapcraft --version"
 script:
-  - docker run -v $(pwd):$(pwd) ubuntu /bin/sh -c "apt-get install -qq sudo; cd $(pwd); ls -la; ./configure.sh"
+  - docker run -v $(pwd):$(pwd) ubuntu /bin/sh -c "apt-get -qq update; apt-get install -qq sudo; cd $(pwd); ls -la; ./configure.sh"
   - ls -la
