@@ -10,24 +10,16 @@ apps:
     plugs: [unity7, opengl, network, network-bind, home]
 
 parts:
-  atomify-lammps:
-    source: .
-    project-files:
-      - atomify-lammps.pro
-    qt-version: qt5
-    plugin: qmake
-    build-packages:
-      - build-essential
-      - gettext
-      - intltool
-      - ubuntu-touch-sounds
-      - suru-icon-theme
-    stage-packages:
-      - ubuntu-sdk-libs
-    snap:
-      - -usr/share/doc
-      - -usr/include
   environment:
     plugin: copy
+    stage-packages:
+      - qt573d
+      - qt57charts-no-lgpl
+      - qt57datavis-no-lgpl
+      - qt57declarative
+      - qt57graphicaleffects
+      - qt57quickcontrols
+      - qt57quickcontrols2
+      - qt57svg
     files:
       travis-test.wrapper: bin/travis-test
