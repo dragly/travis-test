@@ -6,7 +6,7 @@ compiler:
 sudo: required
 dist: trusty
 install:
-  - sudo apt-add-repository -y ppa:snappy-dev/tools
+  - sudo apt-add-repository -y ppa:snappy-dev/tools-proposed
   - sudo apt-get -qq update
   - sudo apt-get -qq install snapcraft
 script:
