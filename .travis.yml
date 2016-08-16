@@ -10,6 +10,6 @@ before_install:
   - docker run ubuntu /bin/sh -c "echo hello again"
   - docker run ubuntu /bin/sh -c "apt-get -qq update; apt-get -qq install snapcraft"
 script:
-  - docker run -v $(pwd):$(pwd) ubuntu /bin/sh -c "cat snapcraft.yaml"
+  - docker run -v $(pwd):$(pwd) ubuntu /bin/sh -c "cd $(pwd); cat snapcraft.yaml"
   - docker run -v $(pwd):$(pwd) ubuntu /bin/sh -c "snapcraft"
   - ls
