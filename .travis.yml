@@ -8,8 +8,8 @@ before_install:
   - docker run -d -p 127.0.0.1:80:4567 ubuntu /bin/sh -c "echo hello"
   - docker ps -a
   - docker run ubuntu /bin/sh -c "echo hello again"
-  - docker run ubuntu /bin/sh -c "apt-get -qq update; apt-get -qq install snapcraft"
+  - docker run ubuntu /bin/sh -c "apt-get -qq update; apt-get -qq install snapcraft; snapcraft --version"
 script:
-  - docker run -v $(pwd):$(pwd) ubuntu /bin/sh -c "cd $(pwd); cat snapcraft.yaml"
+  - docker run -v $(pwd):$(pwd) ubuntu /bin/sh -c "cd $(pwd); cat snapcraft.yaml; snapcraft"
   - docker run -v $(pwd):$(pwd) ubuntu /bin/sh -c "snapcraft"
   - ls
