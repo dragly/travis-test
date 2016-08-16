@@ -47,4 +47,3 @@ parts:
     plugin: copy
     files:
       travis-test.wrapper: bin/travis-test
-snappy-qt5.conf: etc/xdg/qtchooser/snappy-qt5.conf
