@@ -1,0 +1,50 @@
+name: travis-test
+version: "1.0"
+summary: Travis test
+description: Testing grounds for Travis and Snapcraft
+confinement: strict
+
+apps:
+  atomify-lammps:
+    command: travis-test
+    plugs: [unity7, opengl, network, network-bind, home]
+
+parts:
+  atomify-lammps:
+    source: .
+    project-files:
+      - atomify-lammps.pro
+    qt-version: qt5
+    plugin: qmake
+    build-packages:
+      - build-essential
+      - gettext
+      - intltool
+      - ubuntu-touch-sounds
+      - suru-icon-theme
+      - qt573d
+      - qt57charts-no-lgpl
+      - qt57datavis-no-lgpl
+      - qt57declarative
+      - qt57graphicaleffects
+      - qt57quickcontrols
+      - qt57quickcontrols2
+      - qt57svg
+    stage-packages:
+      - qt573d
+      - qt57charts-no-lgpl
+      - qt57datavis-no-lgpl
+      - qt57declarative
+      - qt57graphicaleffects
+      - qt57quickcontrols
+      - qt57quickcontrols2
+      - qt57svg
+      - ubuntu-sdk-libs
+    snap:
+      - -usr/share/doc
+      - -usr/include
+  environment:
+    plugin: copy
+    files:
+      travis-test.wrapper: bin/travis-test
+snappy-qt5.conf: etc/xdg/qtchooser/snappy-qt5.conf

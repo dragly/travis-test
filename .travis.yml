@@ -1,0 +1,15 @@
+language: cpp
+os:
+  - linux
+compiler:
+  - gcc
+sudo: required
+dist: trusty
+install:
+  - sudo apt-add-repository ppa:snappy-dev/tools
+  - sudo apt-get -qq update
+  - sudo apt-get -qq install snapcraft
+script:
+  - snapcraft
+  - sudo snap install travis-test*.snap
+  - travis-test
