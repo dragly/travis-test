@@ -5,12 +5,10 @@ sudo: required
 services: docker
 before_install:
   - docker pull ubuntu
-  - docker run -d -p 127.0.0.1:80:4567 -v $(pwd):$(pwd) ubuntu /bin/sh -c "cd $(pwd); touch file"
-  - docker ps -a
-  - docker run ubuntu /bin/sh -c "cd $(pwd); ls -la"
-  - docker run ubuntu /bin/sh -c "apt-get -qq update; apt-get -qq install snapcraft; snapcraft --version"
+  # - docker run -d -p 127.0.0.1:80:4567 -v $(pwd):$(pwd) ubuntu /bin/sh -c "cd $(pwd); touch file"
+  # - docker ps -a
+  # - docker run ubuntu /bin/sh -c "cd $(pwd); ls -la"
+  # - docker run ubuntu /bin/sh -c "apt-get -qq update; apt-get -qq install snapcraft; snapcraft --version"
 script:
-  - docker run ubuntu /bin/sh -c "cd $(pwd); ls -la"
-  - docker run ubuntu /bin/sh -c "cd $(pwd); cat snapcraft.yaml; snapcraft"
-  - docker run ubuntu /bin/sh -c "snapcraft"
-  - ls
+  - docker run -v $(pwd):$(pwd) ubuntu /bin/sh -c "cd $(pwd); ls -la; apt-get -qq update; apt-get -qq install snapcraft; snapcraft --version; cat snapcraft.yaml; snapcraft"
+  - ls -la
