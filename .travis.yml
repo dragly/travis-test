@@ -1,14 +1,14 @@
 language: cpp
-os:
-  - linux
 compiler:
   - gcc
 sudo: required
-dist: trusty
-install:
-  - sudo apt-add-repository -y ppa:snappy-dev/tools-proposed
-  - sudo apt-get -qq update
-  - sudo apt-get -qq install snapcraft
+services: docker
+before_install:
+  - docker pull ubuntu
+  - docker run -d -p 127.0.0.1:80:4567 ubuntu /bin/sh -c "echo hello"
+  - docker ps -a
+  - docker run ubuntu /bin/sh -c "echo hello again"
+  - docker run ubuntu /bin/sh -c "sudo apt-add-repository -y ppa:snappy-dev/tools-proposed; sudo apt-get -qq update; sudo apt-get -qq install snapcraft"
 script:
   - snapcraft
   - sudo snap install travis-test*.snap
